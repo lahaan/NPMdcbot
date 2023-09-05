@@ -4,7 +4,7 @@ import random
 def get_response(message: str) -> str:
     p_message = message.lower()
 
-    if message == 'nigger':
+    if message == 'nice':
         meter = random.randint(0, 100)
         return poc_meter()
 
