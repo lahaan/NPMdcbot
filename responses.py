@@ -105,7 +105,7 @@ def fag_meter():
 
 def nazi_meter():
     meter = random.randint(0, 100)
-    return f'You are {meter}% nazi'
+    return f'You are {meter}% Nazi'
 
 
 def hitler():
