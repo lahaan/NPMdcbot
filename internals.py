@@ -16,7 +16,7 @@ async def send_message(username, message, user_message):
 
 
 def run_discord_bot():
-    TOKEN = ''
+    TOKEN = 'MTE0ODUzNzgwNzIzNzgxMjI5NQ.GZuuvS.ikBUmuWz11mTB2dzQE3tZ8Gw8sZb-984YQipUU'
     intents = discord.Intents.default()
     intents.message_content = True
     client = discord.Client(intents=intents)
@@ -36,8 +36,8 @@ def run_discord_bot():
 
         print(f'{username} said: "{user_message}" ({channel})')
 
-        if user_message.lower() in ['kill niggers', 'niggers', 'fuck niggers', 'fuck niggers man',
-                                    'i hate niggers', 'bro i hate niggers', 'enslave niggers']:
+        if user_message.lower() in ['kill niggers', 'niggers', 'fuck niggers', 'fuck niggers man', 'i hate niggers',
+                                    'bro i hate niggers', 'enslave niggers']:
             await send_message(username, message, 'kn')
 
         if user_message[0] == '!' or user_message[:3].lower() == 'pls':

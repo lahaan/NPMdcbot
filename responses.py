@@ -3,49 +3,54 @@ import niggerdump
 
 
 def get_response(message: str, ) -> str:
-    p_message = message.lower()
+    meter = int(random.randint(0, 100))
 
     if str(message) in niggerdump.n_call_list:
-        return poc_meter()
+        return poc_meter(meter)
 
     if str(message) in niggerdump.c_call_list:
         return cock_meter()
 
+    if str(message) in niggerdump.j_call_list:
+        return jew_meter(meter)
+
+    if str(message) in niggerdump.f_call_list:
+        return fag_meter(meter)
+
+    if str(message) in niggerdump.ns_call_list:
+        return slander()
+
+    if str(message) in niggerdump.pc_cal_list:
+        return pc_generator()
+
     if message == 'help':
         return help_commands()
-
-    if str(message) in niggerdump.j_call_list:
-        return jew_meter()
 
     if message == 'kn':
         return kn()
 
     if message == 'chink':
-        return chink_meter()
-
-    if str(message) in niggerdump.f_call_list:
-        return fag_meter()
+        return chink_meter(meter)
 
     if message == 'nazi':
-        return nazi_meter()
+        return nazi_meter(meter)
 
     if message == 'hitler':
         return hitler()
 
-    if str(message) in niggerdump.ns_call_list:
-        return slander()
+    if message == 'version':
+        return '```Version 0.0.5 [08.09.23]\n  New: 0.0.5 brings !pc```'
 
 
 def cock_meter():
-    meter = random.randint(0, 1000)
+    meter = random.randint(1, 1000)
     character = '='
     if meter == 1000:
         return '# 8================D'
     return f'8{random.randint(0, 14)*character}D'
 
 
-def poc_meter():
-    meter = random.randint(0, 100)
+def poc_meter(meter):
     if meter < 10:
         return f'You are only {str(meter)}% black :smiling_face_with_3_hearts:'
     return f'You are {str(meter)}% black, unacceptable :thumbsdown_tone1:'if meter < 50 else\
@@ -55,12 +60,11 @@ def poc_meter():
 def help_commands():
     return ('```Current commands: \n !nigger [measures how black you are] \n !cock [measures your cock length] \n'
             ' !jew [measures your inner jew] \n !chink [measures your inner chink]'
-            ' \n !faggot [how much of a faggot you are]\n !nazi [nazi percentage] \n !racism [says what it does] \n'
-            ' [\n\n[commands also work with the prefix "pls"]```')
+            ' \n !faggot [how much of a faggot you are]\n !nazi [nazi bar] \n !racism [says what it does] \n'
+            ' !pc [Your PC randomly generated] \n\n[commands also work with the prefix "pls"]```')
 
 
-def jew_meter():
-    meter = random.randint(0,100)
+def jew_meter(meter):
     if meter < 25:
         return f'You are {meter}% jew :thumbsup_tone1:'
     elif 24 < meter < 50:
@@ -79,8 +83,7 @@ def kn():
     return response_list[choice]
 
 
-def chink_meter():
-    meter = random.randint(0,100)
+def chink_meter(meter):
     if meter < 25:
         return f'You are {meter}% chink :call_me:'
     elif 24 < meter < 50:
@@ -91,8 +94,7 @@ def chink_meter():
         return f'You are {meter}% chink :middle_finger: :flag_cn: #1'
 
 
-def fag_meter():
-    meter = random.randint(0,100)
+def fag_meter(meter):
     if meter < 25:
         return f'You are only {meter}% gay :sunglasses:'
     elif 24 < meter < 50:
@@ -103,9 +105,8 @@ def fag_meter():
         return f'You are {meter}% gay - fucking dyke faggot :rainbow_flag:'
 
 
-def nazi_meter():
-    meter = random.randint(0, 100)
-    return f'You are {meter}% Nazi'
+def nazi_meter(meter):
+    return f'Your nazi meter is: {(meter // 10) * "卐"}'
 
 
 def hitler():
@@ -114,3 +115,8 @@ def hitler():
 
 def slander():
     return str(niggerdump.nigger_slander[random.randint(0, 50)])
+
+
+def pc_generator():
+    return (f'```Your spec: \n CPU: {niggerdump.cpu_list[random.randint(0, 292)]}\n'
+            f' GPU: {niggerdump.gpu_list[random.randint(0, 190)]}```')
