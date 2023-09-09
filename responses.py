@@ -118,12 +118,12 @@ def slander():
 
 
 def pc_generator():
-    return (f'```Your spec: \n CPU: {niggerdump.cpu_list[random.randint(0, 291)]}\n'
+    return (f'```Your spec: \n CPU: {niggerdump.cpu_list[random.randint(0, 292)]}\n'
             f' GPU: {niggerdump.gpu_list[random.randint(0, 189)]}\n'
             f' PSU: {niggerdump.psu_brand[random.randint(0, 21)]}'
             f' {random.randint(10, 20) if random.randint(1, 3) == 1 else random.randint(2, 9)}00W'
             f' {niggerdump.psu_tier[random.randint(0, 6)]}\n'
-            f' RAM: {ram()}\n'
+            f' RAM: {niggerdump.ram_sizes[random.randint(0, 16)]} {niggerdump.ram_tuning[random.randint(0, 2)]}\n'
             f' Storage: {storage()}\n'
             f' Cooling: {cooling()}\n'
             f' Case: {niggerdump.case_brand[random.randint(0, 32)]} {niggerdump.case_sizes[random.randint(0, 6)]}```')
@@ -142,10 +142,6 @@ def storage():
         return f'{niggerdump.storage_sizes[random.randint(0, 9)]} {niggerdump.hdd_rpm[random.randint(0, 2)]} HDD'
     return (f'{niggerdump.storage_sizes[random.randint(0, 9)]} {niggerdump.ssd_cell_level[random.randint(0, 4)]}'
             f' SSD {dram_cache()}')
-
-
-def ram():
-    return f'{niggerdump.ram_sizes[random.randint(0, 11)]} {niggerdump.ram_tuning[random.randint(0, 2)]}'
 
 
 def dram_cache():
