@@ -120,7 +120,7 @@ def slander():
 def pc_generator():
     return (f'```Your spec: \n CPU: {niggerdump.cpu_list[random.randint(0, 291)]}\n'
             f' GPU: {niggerdump.gpu_list[random.randint(0, 189)]}\n'
-            f' PSU: {niggerdump.psu_brand[random.randint(0, 21)]}\n'
+            f' PSU: {niggerdump.psu_brand[random.randint(0, 21)]}'
             f' {random.randint(10, 20) if random.randint(1, 3) == 1 else random.randint(2, 9)}00W'
             f' {niggerdump.psu_tier[random.randint(0, 6)]}\n'
             f' RAM: {ram()}\n'
