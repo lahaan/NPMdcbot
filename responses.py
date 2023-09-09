@@ -79,7 +79,7 @@ def jew_meter(meter):
 def kn():
     response_list = ['real', 'frfr', 'i hate niggers too', 'i also hate niggers',
                      'fuck niggers man', 'slave niggers ong', 'enslave those faggots', 'based']
-    choice = random.randint(0, 7)
+    choice = random.randint(0, 6)
     return response_list[choice]
 
 
@@ -114,9 +114,39 @@ def hitler():
 
 
 def slander():
-    return str(niggerdump.nigger_slander[random.randint(0, 50)])
+    return str(niggerdump.nigger_slander[random.randint(0, 49)])
 
 
 def pc_generator():
-    return (f'```Your spec: \n CPU: {niggerdump.cpu_list[random.randint(0, 292)]}\n'
-            f' GPU: {niggerdump.gpu_list[random.randint(0, 190)]}```')
+    return (f'```Your spec: \n CPU: {niggerdump.cpu_list[random.randint(0, 291)]}\n'
+            f' GPU: {niggerdump.gpu_list[random.randint(0, 189)]}\n'
+            f' PSU: {niggerdump.psu_brand[random.randint(0, 21)]}\n'
+            f' {random.randint(10, 20) if random.randint(1, 3) == 1 else random.randint(2, 9)}00W'
+            f' {niggerdump.psu_tier[random.randint(0, 6)]}\n'
+            f' RAM: {ram()}\n'
+            f' Storage: {storage()}\n'
+            f' Cooling: {cooling()}\n'
+            f' Case: {niggerdump.case_brand[random.randint(0, 32)]} {niggerdump.case_sizes[random.randint(0, 6)]}```')
+
+
+def cooling():
+    if random.randint(1, 2) == 1:  # water cooling 50%
+        if random.randint(1, 2) == 1:  # custom water cooling 50%*50%
+            return f'{niggerdump.rad_sizes[random.randint(0, 9)]} custom water cooling'
+        return f'{niggerdump.aio_coolers[random.randint(0, 5)]}'
+    return f'{niggerdump.air_coolers[random.randint(0, 34)]}'  # air cooling 50%
+
+
+def storage():
+    if random.randint(1, 2) == 1:  # HDD
+        return f'{niggerdump.storage_sizes[random.randint(0, 9)]} {niggerdump.hdd_rpm[random.randint(0, 2)]} HDD'
+    return (f'{niggerdump.storage_sizes[random.randint(0, 9)]} {niggerdump.ssd_cell_level[random.randint(0, 4)]}'
+            f' SSD {dram_cache()}')
+
+
+def ram():
+    return f'{niggerdump.ram_sizes[random.randint(0, 11)]} {niggerdump.ram_tuning[random.randint(0, 2)]}'
+
+
+def dram_cache():
+    return 'w/ DRAM cache' if random.randint(1, 2) == 1 else ''
