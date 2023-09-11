@@ -1,12 +1,13 @@
 import discord
 import responses
+import data
 
 
 async def send_message(username, message, user_message):
     try:
         response = responses.get_response(user_message)
-        if user_message == 'jew' and response[:1] == 'h':
-            await message.channel.send(f'{username}, you are such a fucking kike kys (over 95% to be exact)')
+        if user_message == data.choice4 and response[:1] == 'h':
+            await message.channel.send(f'{username}, {data.random_copypasta4}')
             await message.channel.send(response)
         else:
             await message.channel.send(response)
@@ -16,14 +17,14 @@ async def send_message(username, message, user_message):
 
 
 def run_discord_bot():
-    TOKEN = 'MTE0ODUzNzgwNzIzNzgxMjI5NQ.GZuuvS.ikBUmuWz11mTB2dzQE3tZ8Gw8sZb-984YQipUU'
+    TOKEN = data.dc_token
     intents = discord.Intents.default()
     intents.message_content = True
     client = discord.Client(intents=intents)
 
     @client.event
     async def on_ready():
-        print(f'{client.user} is now running!!')
+        print(f'{client.user} is now running!')
 
     @client.event
     async def on_message(message):
@@ -36,8 +37,7 @@ def run_discord_bot():
 
         print(f'{username} said: "{user_message}" ({channel})')
 
-        if user_message.lower() in ['kill niggers', 'niggers', 'fuck niggers', 'fuck niggers man', 'i hate niggers',
-                                    'bro i hate niggers', 'enslave niggers']:
+        if user_message.lower() in data.written_message_list:
             await send_message(username, message, 'kn')
 
         if user_message[0] == '!' or user_message[:3].lower() == 'pls':
