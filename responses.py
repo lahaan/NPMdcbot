@@ -24,22 +24,25 @@ def get_response(message: str, ) -> str:
         return pc_generator()
 
     if message == 'help':
-        return help_commands()
+        return data.help_print
 
     if message == 'kn':
         return kn()
 
-    if message == data.choice6:
+    if message == data.choices[5]:
         return c_meter(meter)
 
-    if message == data.choice7:
+    if message == data.choices[6]:
         return n_meter(meter)
 
-    if message == data.choice8:
+    if message == data.choices[7]:
         return h()
 
+    if message == data.choices[10]:
+        return s_meter(meter)
+
     if message == 'version':
-        return '```Version 0.0.5 [08.09.23]\n  New: 0.0.5 brings !pc```'
+        return '```Version 0.1.0 [13.09.23]\n  New: Data rework, optimizations, !soy```'
 
 
 def pp_meter():
@@ -52,56 +55,50 @@ def pp_meter():
 
 def poc_meter(meter):
     if meter < 10:
-        return f'You are only {str(meter)}% {data.choice2} :smiling_face_with_3_hearts:'
-    return f'You are {str(meter)}% {data.choice2}, unacceptable :thumbsdown_tone1:'if meter < 50 else\
-        f'You are a whopping {str(meter)}% {data.choice2}, {data.choice1} {data.choice3}'
-
-
-def help_commands():
-    return data.help
+        return f'You are only {str(meter)}% {data.choices[2]} :smiling_face_with_3_hearts:'
+    return f'You are {str(meter)}% {data.choices[2]}, unacceptable :thumbsdown_tone1:'if meter < 50 else\
+        f'You are a whopping {str(meter)}% {data.choices[2]}, {data.choices[0]} {data.choices[3]}'
 
 
 def j_meter(meter):
     if meter < 25:
-        return f'You are {meter}% {data.choice4} :thumbsup_tone1:'
+        return f'You are {meter}% {data.choices[4]} :thumbsup_tone1:'
     elif 24 < meter < 50:
-        return f'You are {meter}% {data.choice4} :rolling_eyes:'
+        return f'You are {meter}% {data.choices[4]} :rolling_eyes:'
     elif 49 < meter < 95:
-        return f'You are {meter}% {data.choice5} :star_of_david:'
+        return f'You are {meter}% {data.choices[5]} :star_of_david:'
     else:
         return data.gif1
 
 
 def kn():
-    response_list = data.nresponse
-    choice = random.randint(0, 6)
-    return response_list[choice]
+    return data.nresponse[random.randint(0, 6)]
 
 
 def c_meter(meter):
     if meter < 25:
-        return f'You are {meter}% {data.choice6} :call_me:'
+        return f'You are {meter}% {data.choices[6]} :call_me:'
     elif 24 < meter < 50:
-        return f'You are {meter}% {data.choice6} :nerd:'
+        return f'You are {meter}% {data.choices[6]} :nerd:'
     elif 49 < meter < 95:
-        return f'You are {meter}% {data.choice6} :expressionless:'
+        return f'You are {meter}% {data.choices[6]} :expressionless:'
     else:
-        return f'You are {meter}% {data.choice6} {data.random_copypasta}'
+        return f'You are {meter}% {data.choices[6]} {data.random_copypasta[0]}'
 
 
 def f_meter(meter):
     if meter < 25:
-        return f'You are only {meter}% {data.choice9} :sunglasses:'
+        return f'You are only {meter}% {data.choices[9]} :sunglasses:'
     elif 24 < meter < 50:
-        return f'You are {meter}% {data.choice9} :flushed:'
+        return f'You are {meter}% {data.choices[9]} :flushed:'
     elif 49 < meter < 95:
-        return f'You are {meter}% {data.choice9}, {data.random_copypasta2}'
+        return f'You are {meter}% {data.choices[9]}, {data.random_copypasta[1]}'
     else:
-        return f'You are {meter}% {data.choice9} - {data.random_copypasta3}'
+        return f'You are {meter}% {data.choices[9]} - {data.random_copypasta[2]}'
 
 
 def n_meter(meter):
-    return f'Your {data.choice7} meter is: {(meter // 10) * data.choice10}'
+    return f'Your {data.choices[7]} meter is: {(meter // 10) * data.mote}'
 
 
 def h():
@@ -144,3 +141,14 @@ def storage():
 
 def dram_cache():
     return 'w/ DRAM cache' if random.randint(1, 2) == 1 else ''
+
+
+def s_meter(meter):
+    if meter < 25:
+        return f'You are {meter}% {data.choices[10]}, based'
+    elif 24 < meter < 50:
+        return f'You are {meter}% {data.choices[10]}, {data.random_copypasta[4]}'
+    elif 49 < meter < 95:
+        return f'You are {meter}% {data.choices[10]}, {data.random_copypasta[5]}'
+    else:
+        return f'You are {meter}% {data.choices[10]}, {data.random_copypasta[6]}'
