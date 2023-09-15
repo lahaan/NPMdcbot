@@ -5,7 +5,7 @@ import data
 
 async def send_message(username, message, user_message):
     try:
-        response = responses.get_response(user_message, username)
+        response = responses.get_response(user_message)
         if user_message == data.choices[4] and response[:1] == 'h':
             await message.channel.send(f'{username}, {data.random_copypasta[3]}')
             await message.channel.send(response)

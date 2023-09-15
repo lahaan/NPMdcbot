@@ -2,7 +2,7 @@ import random
 import data
 
 
-def get_response(message: str, username: str) -> str:
+def get_response(message: str) -> str:
     meter = int(random.randint(0, 100))
 
     if str(message) in data.n_call_list:
