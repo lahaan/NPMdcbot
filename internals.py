@@ -5,7 +5,7 @@ import data
 
 async def send_message(username, message, user_message):
     try:
-        response = responses.get_response(user_message)
+        response = responses.get_response(user_message, username)
         if user_message == data.choices[4] and response[:1] == 'h':
             await message.channel.send(f'{username}, {data.random_copypasta[3]}')
             await message.channel.send(response)
@@ -35,7 +35,7 @@ def run_discord_bot():
         user_message = str(message.content)
         channel = str(message.channel)
 
-        print(f'{username} said: "{user_message}" ({channel})')
+        print(f'{username}: "{user_message}" ({channel})' if len(user_message) > 0 else '[nothing]')
 
         if user_message.lower() in data.written_message_list:
             await send_message(username, message, 'kn')
