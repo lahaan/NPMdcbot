@@ -38,7 +38,7 @@ def get_response(message: str) -> str:
     if message == 'kn':
         return kn()
 
-    if message == data.choices[5]:
+    if message == data.choices[6]:
         return c_meter(meter)
 
     if message == data.choices[7]:

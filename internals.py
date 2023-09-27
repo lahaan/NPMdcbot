@@ -5,12 +5,16 @@ import data
 
 async def send_message(username, message, user_message):
     try:
-        response = responses.get_response(user_message)
-        if user_message == data.choices[4] and response[:1] == 'h':
-            await message.channel.send(f'{username}, {data.random_copypasta[3]}')
-            await message.channel.send(response)
+        if data.choices[13] in user_message and 'x' in user_message:
+            x = 0
+            x_list = []
+            while x < int(user_message[8:]) and x < 50:
+                x_list.append(f"{responses.get_response(data.choices[13])}\n")
+                x += 1
+            await message.channel.send(f'```{"".join(x_list)}```') if len(x_list) > 0 else\
+                message.channel.send(data.choices[14])
         else:
-            await message.channel.send(response)
+            await message.channel.send(responses.get_response(user_message))
 
     except Exception as e:
         print(e)
