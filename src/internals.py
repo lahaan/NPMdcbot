@@ -22,9 +22,11 @@ async def send_message(username, message, user_message):
 
 
 def run_discord_bot():
+    # Get token from json
     f = open("../token.json")
     file_data = json.load(f)
     TOKEN = file_data["TOKEN"]
+
     intents = discord.Intents.default()
     intents.message_content = True
     client = discord.Client(intents=intents)
