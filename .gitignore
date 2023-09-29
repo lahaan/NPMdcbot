@@ -1,8 +1,8 @@
 token.json
-data.py
+src/data.py
 
 .idea/
-functiontestingground.py
+src/functiontestingground.py
 harry.png
 
 # Byte-compiled / optimized / DLL files
