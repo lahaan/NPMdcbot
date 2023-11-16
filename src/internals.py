@@ -6,7 +6,7 @@ import json
 
 async def send_message(username, message, user_message):
     try:
-        if data.choices[13] in user_message and 'x' in user_message:
+        if data.choices[13] in user_message.strip() and 'x' in user_message:
             x = 0
             x_list = []
             while x < int(user_message[8:]) and x < 50:
@@ -22,11 +22,9 @@ async def send_message(username, message, user_message):
 
 
 def run_discord_bot():
-    # Get token from json
-    f = open("../token.json")
+    f = open("token.json")
     file_data = json.load(f)
     TOKEN = file_data["TOKEN"]
-
     intents = discord.Intents.default()
     intents.message_content = True
     client = discord.Client(intents=intents)
