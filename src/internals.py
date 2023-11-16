@@ -4,7 +4,7 @@ import data
 import json
 
 
-async def send_message(username, message, user_message):
+async def send_message(message, user_message):
     try:
         if data.choices[13] in user_message.strip() and 'x' in user_message:
             x = 0
